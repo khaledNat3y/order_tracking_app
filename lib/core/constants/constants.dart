@@ -1,6 +1,7 @@
-class AppConstants {
-  static const String newsApiKey = "0b5c8b08d3574e0594e70a2112049440";
-  static String lang = "ar";
+import 'package:order_tracking_app/features/auth/data/models/user_model.dart';
+
+class UserData {
+  static UserModel? userModel;
 }
 
 class FirebaseConstants {

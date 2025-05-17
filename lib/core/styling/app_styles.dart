@@ -40,4 +40,10 @@ class AppStyles {
       fontSize: 18.sp,
       fontWeight: FontWeight.bold,
       color: Colors.black);
+
+  static TextStyle white24BoldStyle = TextStyle(
+      fontFamily: AppFonts.mainFontName,
+      fontSize: 24.sp,
+      fontWeight: FontWeight.bold,
+      color: Colors.white);
 }

@@ -6,13 +6,16 @@ import '../../../../core/constants/constants.dart';
 import '../models/user_model.dart';
 
 class AuthRepo {
-  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseAuth firebaseAuth;
+  final FirebaseFirestore firestore;
 
-  Future<Either<String, String>> registerUser(
-      {required String userName,
-      required String email,
-      required String password}) async {
+  AuthRepo(this.firebaseAuth, this.firestore);
+
+  Future<Either<String, String>> registerUser({
+    required String userName,
+    required String email,
+    required String password,
+  }) async {
     try {
       final credential = await firebaseAuth.createUserWithEmailAndPassword(
         email: email,
@@ -23,10 +26,10 @@ class AuthRepo {
           .collection(FirebaseConstants.usersCollection)
           .doc(credential.user!.uid)
           .set({
-        'userName': userName,
-        'email': email,
-        'uid': credential.user!.uid
-      });
+            'userName': userName,
+            'email': email,
+            'uid': credential.user!.uid,
+          });
       return const Right("Account Created Successfully");
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -45,16 +48,21 @@ class AuthRepo {
     }
   }
 
-  Future<Either<String, UserModel>> loginUser(
-      {required String email, required String password}) async {
+  Future<Either<String, UserModel>> loginUser({
+    required String email,
+    required String password,
+  }) async {
     try {
       UserCredential credential = await firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
 
-      final QuerySnapshot<Map<String, dynamic>> querySnapshot = await firestore
-          .collection(FirebaseConstants.usersCollection)
-          .where("uid", isEqualTo: credential.user!.uid)
-          .get();
+       final QuerySnapshot<Map<String, dynamic>> querySnapshot =
+          await firestore
+              .collection(FirebaseConstants.usersCollection)
+              .where("uid", isEqualTo: credential.user!.uid)
+              .get();
       final userData = querySnapshot.docs.first.data();
       final user = UserModel.fromJson(userData);
       return Right(user);
