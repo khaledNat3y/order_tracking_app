@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:order_tracking_app/core/styling/app_colors.dart';
 import 'package:order_tracking_app/core/styling/app_styles.dart';
 import 'package:order_tracking_app/core/styling/theme_data.dart';
 import 'package:order_tracking_app/core/widgets/spacing_widgets.dart';
+
+import '../../../../core/routing/app_routes.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
@@ -45,7 +48,9 @@ class HomeScreenBody extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: (){},
+              onTap: (){
+                GoRouter.of(context).pushNamed(AppRoutes.addOrderScreen);
+              },
               child: Container(
                 margin: EdgeInsets.all(8.sp),
                 decoration: BoxDecoration(
@@ -54,7 +59,7 @@ class HomeScreenBody extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    "Orders",
+                    "Add Order",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.sp,

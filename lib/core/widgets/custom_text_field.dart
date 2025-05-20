@@ -10,6 +10,9 @@ class CustomTextField extends StatelessWidget {
   final bool? isPassword;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final bool? enabled;
+  final bool? readOnly;
+  final void Function()? onTap;
   const CustomTextField(
       {super.key,
       this.hintText,
@@ -17,13 +20,16 @@ class CustomTextField extends StatelessWidget {
       this.width,
       this.isPassword,
       this.controller,
-      this.validator});
+      this.validator, this.enabled, this.readOnly, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
         width: width ?? 331.w,
         child: TextFormField(
+          readOnly: readOnly ?? false,
+            enabled: enabled ?? true,
+            onTap: onTap,
             controller: controller,
             validator: validator,
             autofocus: false,
