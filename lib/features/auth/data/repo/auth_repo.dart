@@ -2,6 +2,8 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:order_tracking_app/core/di/dependency_injection.dart';
+import 'package:order_tracking_app/core/utils/storage_helper.dart';
 import '../../../../core/constants/constants.dart';
 import '../models/user_model.dart';
 
@@ -57,7 +59,6 @@ class AuthRepo {
         email: email,
         password: password,
       );
-
        final QuerySnapshot<Map<String, dynamic>> querySnapshot =
           await firestore
               .collection(FirebaseConstants.usersCollection)

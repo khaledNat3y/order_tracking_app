@@ -191,7 +191,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               previous is! AuthLoading &&
                               current is AuthLoading,
                       builder: (context, state) {
-                        return PrimayButtonWidget(
+                        return PrimaryButtonWidget(
                           buttonText:
                               state is AuthLoading
                                   ? "Loading..."

@@ -6,7 +6,7 @@ import 'package:order_tracking_app/order_tracking_app.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupGetIt();
   runApp(OrderTrackingApp());
 }

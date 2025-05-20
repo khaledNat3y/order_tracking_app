@@ -4,6 +4,8 @@ import 'package:get_it/get_it.dart';
 import 'package:order_tracking_app/core/utils/storage_helper.dart';
 import 'package:order_tracking_app/features/auth/data/repo/auth_repo.dart';
 import 'package:order_tracking_app/features/auth/logic/auth_cubit.dart';
+import 'package:order_tracking_app/features/order_screen/data/repo/orders_repo.dart';
+import 'package:order_tracking_app/features/order_screen/logic/orders_cubit.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -19,8 +21,10 @@ void setupGetIt() {
   getIt.registerLazySingleton(
     () => AuthRepo(getIt<FirebaseAuth>(), getIt<FirebaseFirestore>()),
   );
+  getIt.registerLazySingleton(()=> OrdersRepo(getIt<FirebaseFirestore>()));
 
 
-  // Cubit
+  // Cubits
   getIt.registerFactory(() => AuthCubit(getIt<AuthRepo>()));
+  getIt.registerFactory(() => OrdersCubit(getIt<OrdersRepo>()));
 }

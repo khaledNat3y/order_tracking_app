@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const HeightSpace(55),
                     BlocBuilder<AuthCubit, AuthState>(
                       builder: (context, state) {
-                        return PrimayButtonWidget(
+                        return PrimaryButtonWidget(
                           buttonText: state is AuthLoading ? "Loading..." : "Sign in",
                           onPress:
                           state is AuthLoading

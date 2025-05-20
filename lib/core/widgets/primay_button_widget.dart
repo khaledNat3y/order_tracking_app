@@ -4,7 +4,7 @@ import 'package:order_tracking_app/core/widgets/spacing_widgets.dart';
 
 import '../styling/app_colors.dart';
 
-class PrimayButtonWidget extends StatelessWidget {
+class PrimaryButtonWidget extends StatelessWidget {
   final String? buttonText;
   final Color? buttonColor;
   final double? width;
@@ -16,7 +16,7 @@ class PrimayButtonWidget extends StatelessWidget {
   final Widget? trailingIcon;
   final void Function()? onPress;
   final bool isLoading;
-  const PrimayButtonWidget(
+  const PrimaryButtonWidget(
       {super.key,
       this.buttonText,
       this.buttonColor,

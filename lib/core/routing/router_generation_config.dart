@@ -3,9 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:order_tracking_app/features/auth/data/repo/auth_repo.dart';
 import 'package:order_tracking_app/features/auth/logic/auth_cubit.dart';
 import 'package:order_tracking_app/features/home/ui/home_screen.dart';
+import 'package:order_tracking_app/features/order_screen/logic/orders_cubit.dart';
 
 import '../../features/auth/login_screen.dart';
 import '../../features/auth/register_screen.dart';
+import '../../features/order_screen/ui/add_order_screen.dart';
+import '../../features/order_screen/ui/place_picker_screen.dart';
 import '../../features/splash_screen/splash_screen.dart';
 import '../di/dependency_injection.dart';
 import 'app_routes.dart';
@@ -41,6 +44,20 @@ class RouterGenerationConfig {
         name: AppRoutes.homeScreen,
         path: AppRoutes.homeScreen,
         builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        name: AppRoutes.addOrderScreen,
+        path: AppRoutes.addOrderScreen,
+        builder: (context, state) =>
+            BlocProvider(
+              create: (context) => getIt<OrdersCubit>(),
+              child: AddOrderScreen(),
+            ),
+      ),
+      GoRoute(
+        name: AppRoutes.placePickerScreen,
+        path: AppRoutes.placePickerScreen,
+        builder: (context, state) => const PlacePickerScreen(),
       ),
     ],
   );
