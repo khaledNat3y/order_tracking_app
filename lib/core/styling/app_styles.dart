@@ -31,13 +31,31 @@ class AppStyles {
 
   static TextStyle black15BoldStyle = TextStyle(
       fontFamily: AppFonts.mainFontName,
-      fontSize: 16.sp,
+      fontSize: 15.sp,
       fontWeight: FontWeight.bold,
       color: Colors.black);
+
+  static TextStyle green15BoldStyle = TextStyle(
+      fontFamily: AppFonts.mainFontName,
+      fontSize: 15.sp,
+      fontWeight: FontWeight.bold,
+      color: Colors.green);
+
+  static TextStyle red15BoldStyle = TextStyle(
+      fontFamily: AppFonts.mainFontName,
+      fontSize: 15.sp,
+      fontWeight: FontWeight.bold,
+      color: Colors.red);
 
   static TextStyle black18BoldStyle = TextStyle(
       fontFamily: AppFonts.mainFontName,
       fontSize: 18.sp,
+      fontWeight: FontWeight.bold,
+      color: Colors.black);
+
+  static TextStyle black24BoldStyle = TextStyle(
+      fontFamily: AppFonts.mainFontName,
+      fontSize: 24.sp,
       fontWeight: FontWeight.bold,
       color: Colors.black);
 

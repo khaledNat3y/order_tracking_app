@@ -48,6 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 type: AnimatedSnackBarType.success,
               );
               GoRouter.of(context).pushNamed(AppRoutes.homeScreen);
+
             }
             if (state is AuthFailure) {
               showAnimatedSnackDialog(
@@ -147,11 +148,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                       },
                     ),
-                    const HeightSpace(70),
+                    const HeightSpace(16),
+                    PrimaryButtonWidget(
+                      buttonText: "Track My Order",
+                      buttonColor: Colors.green,
+                      onPress: () {
+                        GoRouter.of(context).pushReplacementNamed(AppRoutes.searchMyOrderScreen);
+                      }),
+                    const HeightSpace(40),
                     Center(
                       child: GestureDetector(
                         onTap: () {
-                          context.pushNamed(AppRoutes.registerScreen);
+                          context.pushNamed(AppRoutes.searchMyOrderScreen);
                         },
                         child: RichText(
                           text: TextSpan(
