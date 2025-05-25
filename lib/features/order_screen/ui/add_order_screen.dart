@@ -244,7 +244,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                             orderDate: DateFormat(
                               "yyyy-MM-dd",
                             ).format(orderArrivalDate!),
-                            orderStatus: "Not Started",
+                            orderStatus: "Started",
                           );
                           context.read<OrdersCubit>().addOrder(
                             orderModel: orderModel,

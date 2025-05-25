@@ -11,4 +11,7 @@ class AppRoutes {
   static const String addOrderScreen = '/addOrderScreen';
   static const String ordersScreen = '/ordersScreen';
   static const String placePickerScreen = '/placePickerScreen';
+  static const String orderTrackScreen = '/orderTrackScreen';
+  static const String searchMyOrderScreen = '/searchMyOrderScreen';
+  static const String trackMyOrderUserMap = '/trackMyOrderUserMap';
 }
