@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -35,6 +34,7 @@ class _PlacePickerScreenState extends State<PlacePickerScreen> {
           hintText: "Search for a building, street or ...",
         ),
       ),
+      resizeToAvoidBottomInset: true,
     );
   }
   Future<Position> _determinePosition() async {
